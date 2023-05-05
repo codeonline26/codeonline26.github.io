@@ -7,15 +7,15 @@
 var normal_title = document.title;
 document.addEventListener('visibilitychange',function(){
     if( document.visibilityState == 'hidden' ){
-        document.title = '等等，你别走啊 !(ㄒoㄒ)';
+        document.title = '等等，你别走啊';
         setTimeout(function(){
-            document.title ='(；\′⌒`)要走的人终究是留不住的~~';
+            document.title ='要走的人终究是留不住的~~';
         }, 1200);
         setTimeout(function(){
             document.title = normal_title;
         }, 2500);
     } else if(document.visibilityState == 'visible' ){
-        document.title = 'ヽ(￣▽￣)ﾉ欢迎回来 !o^_^o';
+        document.title = '欢迎回来';
         setTimeout(function(){
             document.title = normal_title;
         }, 2500);
