@@ -1,0 +1,270 @@
+body {
+  background-image: url(../images/obsidian.png);
+  background-repeat: repeat;
+}
+
+.subtitle {
+  position: absolute;
+  color: yellow;
+  left: 18%;
+  top: 13%;
+  font-size: 150%;
+  font-family: Minecraft;
+  transform: rotate(-20deg);
+  width: 100%;
+  animation: subtitle 0.25s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes subtitle {
+  0% {
+    transform: scale(0.875) rotate(-20deg);
+  }
+  100% {
+    transform: scale(1) rotate(-20deg);
+  }
+}
+
+.anim-btn {
+  color: #fff;
+  font-family: Minecraft;
+  background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+  width: 18%;
+  height: 40px;
+  line-height: 42px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  top: 20px;
+  left: 62%;
+}
+
+.anim-btn span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.anim-btn:before,
+.anim-btn:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+   background: rgba(2,126,251,1);
+  transition: all 0.3s ease;
+}
+.anim-btn:before {
+  height: 0%;
+  width: 3px;
+}
+.anim-btn:after {
+  width: 0%;
+  height: 3px;
+}
+.anim-btn:hover{
+   background: transparent;
+  box-shadow: none;
+}
+.anim-btn:hover:before {
+  height: 100%;
+}
+.anim-btn:hover:after {
+  width: 100%;
+}
+
+.anim-btn span:before,
+.anim-btn span:after {
+  position: absolute;
+  content: "";
+  left: -6px;
+  bottom: -1px;
+   background: rgba(2,126,251,1);
+  transition: all 0.3s ease;
+}
+.anim-btn span:before {
+  width: 3px;
+  height: 0%;
+}
+.anim-btn span:after {
+  width: 0%;
+  height: 3px;
+}
+.anim-btn span:hover:before {
+  height: 100%;
+}
+.anim-btn span:hover:after {
+  width: 107%;
+}
+
+.option-title {
+  color: #F6C;
+  font-family: Minecraft;
+  font-size: 190%;
+  margin: 5px;
+}
+
+.option-check {
+  color: #C6F;
+  font-family: Minecraft;
+  font-size: 150%;
+  vertical-align: center;
+}
+
+.option {
+  color: cyan;
+  font-family: Minecraft;
+  font-size: 150%;
+}
+
+.option-panel {
+  width: 95%;
+  border-radius: 10px;
+  background: #000;
+  opacity: 75%;
+  padding: 3%;
+  margin: 2%;
+}
+
+.option-bar {
+  padding: 7px;
+  background: #333;
+  border-radius: 5px;
+}
+
+.option-column {
+  top: 30%;
+  width: 30%;
+  display: inline-block;
+}
+
+.code-title {
+  color: #C0C;
+  font-family: Minecraft;
+  font-size: 200%;
+  vertical-align: top;
+}
+
+.preset-bar {
+  padding: 3px;
+  background: #555;
+  border-radius: 5px;
+}
+
+.code-panel {
+  width: 60%;
+  border-radius: 10px;
+  display: inline-block;
+  background: #000;
+  opacity: 75%;
+  padding: 2%;
+  margin: 2%;
+}
+
+.radio_item {
+  display: none !important;
+}
+
+.label_item {
+  opacity: 0.3;
+  top: -4px;
+  transition: all 0.3s;
+  position: relative;
+  display: inline-block;
+}
+
+.label_item_tiny {
+  opacity: 0.3;
+  top: 2px;
+  transition: all 0.3s;
+  position: relative;
+  display: inline-block;
+  bottom: -10px;
+}
+
+.radio_item:checked + label {
+  opacity: 1;
+}
+
+label {
+  cursor: pointer;
+}
+
+.label_item > img {
+  width: 90%;
+  margin: 5px;
+}
+.label_item_tiny > img {
+  width: 60px;
+  height: 60px;
+}
+
+.label_item > span {
+  font-family: Minecraft;
+  font-size: 16px;
+  position: absolute;
+  bottom: -15px;
+  text-shadow: 1px 1px 3px #333;
+  color: white;
+  left: 6px;
+}
+
+textarea {
+  position: relative;
+  width: 98%;
+}
+
+#seed {
+  color: orange;
+  font-family: Minecraft;
+  font-size: 140%;
+}
+
+#gencodetext code {
+  position: relative;
+  width: 97%;
+  height: 320px;
+}
+
+.squaredTwo {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  background: #fcfff4;
+  background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.squaredTwo label {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  background: linear-gradient(to bottom, #222222 0%, #45484d 100%);
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px white;
+}
+.squaredTwo label:after {
+  content: '';
+  width: 9px;
+  height: 5px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border: 3px solid #fcfff4;
+  border-top: none;
+  border-right: none;
+  background: transparent;
+  opacity: 0;
+  transform: rotate(-45deg);
+}
+.squaredTwo label:hover::after {
+  opacity: 0.3;
+}
+.squaredTwo input[type=checkbox] {
+  visibility: hidden;
+}
+.squaredTwo input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}

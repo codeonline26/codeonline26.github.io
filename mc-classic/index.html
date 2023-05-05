@@ -1,0 +1,84 @@
+<html>
+ <head> 
+  <meta charset="UTF-8" /> 
+  <title>Minecraft Classic Launcher</title> 
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./assets/js/MinecraftTooltips.js"></script>
+  <script src="./assets/js/highlight.pack.js"></script>
+  <link rel="stylesheet" href="./assets/css/tomorrow-night-eighties.css">
+  <link rel="stylesheet" href="./assets/css/minecraft-tooltips.css">
+  <script src="./assets/js/launcher.js"></script>
+  <link href="./assets/css/launcher.css" rel="stylesheet"/>
+  <script>hljs.initHighlightingOnLoad();</script>
+ </head> 
+ <body onload="displayQuote();setDefault();initTip();">
+  <div id="minetip-tooltip">
+   <span class="minetip-title" id="minetip-text">Grass Block</span>
+  </div>
+  <center> 
+   <img src="./assets/images/Title.png" width="40%" /> 
+   <div class="subtitle" id="quote">
+     Here be splashes! 
+   </div> 
+  </center> 
+  <div class="option-column"> 
+   <p class="option-title">§ Custom Options</p>
+   <div class="option-panel"> 
+    <p class="option">§ Textures</p> 
+    <div class="option-bar"> 
+     <!--TEX 1--> 
+     <input type="radio" class="radio_item" value="default" name="tex" id="tex1" /> 
+     <label class="label_item" for="tex1"> <img src="./assets/images/IconDefault.png" /> <span>Default</span> </label> 
+     <!--TEX 2--> 
+     <input type="radio" class="radio_item" value="ocd" name="tex" id="tex2" /> 
+     <label class="label_item" for="tex2"> <img src="./assets/images/IconOCD.png" /><span>OCD</span></label> 
+    </div> 
+   </div> 
+   <div class="option-panel">
+    <div style="display:inline-block;" class="squaredTwo">  
+     <input type="checkbox" value="yep" id="seedandsize" name="seedandsize"/>
+     <label for="seedandsize"></label>
+    </div>
+    <div style="display:inline-block;"><label class="option-check" for="seedandsize">&lt; Custom Seed and Size? &gt;</label></div>
+    <p class="option">§ World Seed</p>
+    <textarea rows="1" id="seed">7587911771532</textarea>
+    <p class="option">§ World Size</p>
+    <div class="option-bar"> 
+     <!--SIZE 1--> 
+     <input type="radio" class="radio_item" value="small" name="size" id="size1" /> 
+     <label class="label_item" for="size1"> <img src="./assets/images/IconSmall.png" /> <span>Small</span> </label> 
+     <!--SIZE 2--> 
+     <input type="radio" class="radio_item" value="medium" name="size" id="size2" /> 
+     <label class="label_item" for="size2"> <img src="./assets/images/IconMedium.png" /> <span>Normal</span></label> 
+     <!--SIZE 3--> 
+     <input type="radio" class="radio_item" value="large" name="size" id="size3" /> 
+     <label class="label_item" for="size3"> <img src="./assets/images/IconLarge.png" /> <span>Huge</span></label> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="code-panel"> 
+   <p style="display: inline-block;" class="code-title">§ Custom World Generator Code</p> 
+   <div class="preset-bar" style="display: inline-block;"> 
+    <!--PRESET 1--> 
+    <input type="radio" class="radio_item" value="default" name="preset" id="preset1" onclick="setDefaultGen()"/> 
+    <label class="label_item_tiny mctiparea" for="preset1"> <img data-mctitle="Default" src="./assets/images/IconDefault.png" /></label> 
+    <!--PRESET 2--> 
+    <input type="radio" class="radio_item" value="moon" name="preset" id="preset2" onclick="setMoonGen()"/> 
+    <label class="label_item_tiny mctiparea" for="preset2"> <img data-mctitle="Moon" src="./assets/images/IconMoon.png" /></label> 
+    <!--PRESET 3--> 
+    <input type="radio" class="radio_item" value="crystal" name="preset" id="preset3" onclick="setCrystalGen()"/> 
+    <label class="label_item_tiny mctiparea" for="preset3"> <img data-mctitle="Crystal" src="./assets/images/IconDiamond.png" /></label> 
+    <!--PRESET 4--> 
+    <input type="radio" class="radio_item" value="rainbow" name="preset" id="preset4" onclick="setRainbowGen()"/> 
+    <label class="label_item_tiny mctiparea" for="preset4"> <img data-mctitle="Rainbow" src="./assets/images/IconRainbow.png" /></label> 
+    <!-- CUSTOM --> 
+    <input type="radio" class="radio_item" value="custom" name="preset" id="custom" onclick="setCustomGen()"/> 
+    <label class="label_item_tiny mctiparea" for="custom"> <img data-mctitle="Custom" src="./assets/images/IconCustom.png" /></label> 
+   </div> 
+   <textarea id="gencodeinput" rows="24" style="display:none">Here goes custom generation code...</textarea>
+   <span id="gencodetext">Here goes generation code...</span>
+   <button class="anim-btn" id="reset-btn" onclick="clearGame()"><span>Clear Saved Game</span></button>
+   <button class="anim-btn" id="start-btn" onclick="launch()"><span>Start!</span></button>
+  </div>
+ </body>
+</html>

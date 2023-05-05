@@ -1,0 +1,123 @@
+<!doctype html><html><head><meta charset="utf-8"><title>源码编辑器4.0</title><style>#kitten-loader-wrap {
+      position: absolute;
+      visibility: visible;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 99;
+      background-color: #F9F9F9;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      -webkit-transition: all 0.3s ease-in;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .kitten-loader-blur-circle-big,
+    .kitten-loader-blur-circle-small {
+      background-color: #F9F9F9;
+      border-radius: 100%;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+    #kitten-loader-wrap .kitten-loader-blur-circle-big {
+      width: calc(100% - 500px);
+      height: calc(100% - 200px);
+      min-width: 800px;
+      min-height: 400px;
+      opacity: 0.7;
+      filter: blur(20px);
+    }
+
+    #kitten-loader-wrap .kitten-loader-blur-circle-small {
+      width: 600px;
+      height: 400px;
+      filter: blur(5px);
+    }
+
+    .kitten-loader-container .progress-bar-area {
+      width: 425px;
+      height: 20px;
+      position: relative;
+    }
+
+    .kitten-loader-container .text {
+      margin-top: 13px;
+      font-family: PingFangSC-Semibold;
+      font-weight: 600;
+      font-size: 16px;
+      color: #715534;
+      letter-spacing: 1px;
+      line-height: 16px;
+      text-align: center;
+    }
+    /* 
+      低分辨率设备 1440*900 video 会出现边框，故添加一层 div 设置为 overflow:hidden
+      并将 video 大小变大，设置负的 margin 消除边框
+     */
+    .kitten-loader-container .kitten-loader-video-container {
+      width: 300px;
+      height: 160px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .kitten-loader-video-container #kitten-loader-video{
+      margin-top: -2px;
+      margin-left: -2px;
+    }
+
+    #kitten-loader-wrap .kitten-loader-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(./asset/loading/bg_clip.svg);
+      opacity: 0.5;
+      z-index: -1;
+    }
+
+    #root {
+      height: 100%;
+      width: 100%;
+    }
+    #offline-text {
+      box-sizing: border-box;
+      width: 100px;
+      height: 36px;
+      padding: 8px 14px 10px;
+      text-align: center;
+      margin: 0 auto;
+      margin-top: 24px;
+      border: 2px solid #2f7bff;
+      border-radius: 6px;
+      font-size: 16px;
+      color: #247bff;
+      text-align: center;
+    }
+    #offline-text:hover {
+      color: #0868f9;
+      cursor: pointer;
+    }</style><meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="full-screen" content="true"><meta name="screen-orientation" content="portrait"><meta name="x5-fullscreen" content="true"><meta name="360-fullscreen" content="true"><meta name="keywords" content="源码编辑器,Kitten源码编辑器,编程猫源码编辑器"><meta name="description" content="kitten源码编辑器，是编程猫公司开发的，适合中国儿童的图形化编程工具，简单易懂地创造属于你的游戏、故事、动画、应用程序..."><script>window.kitten_is_ide = true; // This has to happen before kitten.min.js is loaded</script><link rel="shortcut icon" href="./favicon_k4.png"><link href="./libs/perfect-scrollbar.min.css" rel="stylesheet"><link href="./kitten__de90a032edb8888c0e41.css" rel="stylesheet"></head><body><svg id="kitten_svg" width="0" height="0" style="display: block;"><defs></defs></svg><div id="root"></div><div id="kitten-loader-wrap"><div class="kitten-loader-background"></div><div class="kitten-loader-blur-circle-big"></div><div class="kitten-loader-blur-circle-small"></div><div class="kitten-loader-container"><div class="kitten-loader-video-container"><video id="kitten-loader-video" width="304" height="164" autoplay loop muted><source src="./asset/loading/new_loading.mp4" type="video/mp4"></video></div><div class="progress-bar-area"></div><div class="text" id="text"><div id="loading-text"></div><div id="offline-text" onclick="switch_mode()"></div></div></div></div><script>var text = document.getElementById('loading-text');
+    var offline_text = document.getElementById('offline-text');
+    var lang = navigator.language;
+    lang = lang.substr(0,2);
+      text.innerHTML = lang == "zh" ? "&nbsp;&nbsp;努力加载程序中..." : "&nbsp;&nbsp;Loading program...";
+      offline_text.innerHTML = lang == "zh" ? "离线打开" : "Offline Open";
+      function switch_mode() {
+        window.use_offline_mode = true;
+        var text_dom = document.getElementById('text');
+        text.innerHTML = lang === 'zh' ? '&nbsp;&nbsp;正在进入“离线模式”...' : '&nbsp;&nbsp;Opening in offline mode...';
+        text_dom.removeChild(offline_text);
+      }</script><script src="./libs/lottie_svg_cmao.min.js"></script><script src="./runtime.a1683c78e71bb2d20aa0.js"></script><script src="./vendors.4570caaae74bd0240935.js"></script><script src="./kitten.368938350e591cda58a3.js"></script></body></html>
