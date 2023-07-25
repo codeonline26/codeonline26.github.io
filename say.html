@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="user-select: text !important;">信息告示</title>
+  </head>
+  <body>
+    <div id="app">
+      <label>
+        告示：
+        <div>
+          <textarea id="display" style="width: 100%;height: 5em;"></textarea></div>
+      </label>
+
+      <button id="action" style="user-select: text !important;">加密</button>
+    </div>
+    <div id="tips" style="user-select: text !important;">输入文字，点击加密后，复制分享链接</div>
+    <script style="user-select: text !important;">
+      // https://stackoverflow.com/a/30106551
+      function toBase64(string) {
+        const codeUnits = new Uint16Array(string.length);
+        for (let i = 0; i < codeUnits.length; i++) {
+          codeUnits[i] = string.charCodeAt(i);
+        }
+        return btoa(String.fromCharCode(...new Uint8Array(codeUnits.buffer)));
+      }
+      function fromBase64(encoded) {
+        const binary = atob(encoded);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < bytes.length; i++) {
+          bytes[i] = binary.charCodeAt(i);
+        }
+        return String.fromCharCode(...new Uint16Array(bytes.buffer));
+      }
+      function removeHash() {
+        history.pushState(
+          "",
+          document.title,
+          window.location.pathname + window.location.search
+        );
+      }
+
+      const setup = () => {
+        const actionEl = document.getElementById("action");
+        const displayEl = document.getElementById("display");
+        const tipsEl = document.getElementById("tips");
+        if (window.location.hash) {
+          actionEl.innerText = "获取文字";
+          tipsEl.innerText = "点击按钮";
+          actionEl.onclick = () => {
+            displayEl.value = fromBase64(window.location.hash.slice(1));
+            removeHash();
+            setup();
+          };
+        } else {
+          actionEl.innerText = "加密";
+          tipsEl.innerText = "输入文字，点击加密后，复制分享链接";
+          actionEl.onclick = () => {
+            window.location.hash = "#" + toBase64(displayEl.value);
+            displayEl.value = "";
+            setup();
+          };
+        }
+      };
+      setup();
+    </script>
+  
+
+</body></html>
